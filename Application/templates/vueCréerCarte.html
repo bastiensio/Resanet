@@ -1,0 +1,26 @@
+{% include "vueEntete.html" %}
+{% include "vueEnteteGestionnaire.html" %}
+
+<style>
+.AvecCarte{ margin-bottom:10px; width: 1150px}
+table.padding{padding:20px}
+tr{border: 1px solid;}
+</style>
+
+<h2>Formulaire de création de carte</h2>
+<form action="/gestionnaire/Carte/Créer/" method="post"> 
+    <input type="hidden" name="matricule" value="{{ matricule }}"> 
+    <label for="solde">Solde :</label> 
+    <input type="number" id="solde" name="solde" required><br><br>
+
+    <label for="activee">Activation :</label>
+    <select id="activee" name="activee" onchange="toggleCheckbox('activee')">
+        <option value="true">Oui</option>
+        <option value="false">Non</option>
+    </select>
+    <br><br>
+
+    <input type="submit" value="Envoyer"> 
+</form>
+
+{% include "vuePied.html" %}
